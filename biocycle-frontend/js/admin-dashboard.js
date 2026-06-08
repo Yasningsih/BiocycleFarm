@@ -34,9 +34,8 @@ document.getElementById('btnCreateUser').addEventListener('click', async () => {
     btnCreate.innerText = "Memproses..."; // Efek loading
 
     try {
-        // REVISI DOSEN: Menambahkan /${newPassword} ke dalam URL
-        // Catatan: Pastikan portnya 8080. Kalau tadi kamu ganti ke 8081, ubah angka di bawah ini ya!
-        const response = await fetch(`http://localhost:8080/api/admin/create-user/${newCode}/${newPassword}`, {
+        // BERHASIL DIPERBARUI: Mengarah langsung ke server Hugging Face Space kamu
+        const response = await fetch(`https://yibee99-biocycle-backend.hf.space/api/admin/create-user/${newCode}/${newPassword}`, {
             method: 'POST'
         });
         
@@ -52,7 +51,7 @@ document.getElementById('btnCreateUser').addEventListener('click', async () => {
         }
     } catch (error) {
         console.error("Error Fetch:", error);
-        alert("Gagal menghubungi Server Java. Pastikan aplikasi Spring Boot Anda sudah di-Run dan berjalan di port yang benar.");
+        alert("Gagal menghubungi Server Java di Hugging Face. Pastikan status Space Anda bertuliskan 'Running'.");
     } finally {
         btnCreate.innerText = originalText; // Kembalikan tulisan tombol
     }
