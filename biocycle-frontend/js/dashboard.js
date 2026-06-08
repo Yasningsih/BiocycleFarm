@@ -145,9 +145,33 @@ const chart = new Chart(ctx, {
     },
     options: {
         responsive: true,
+        maintainAspectRatio: false, // PENTING: Menghapus bug grafik gepeng di HP
+        plugins: {
+            legend: {
+                position: 'top',
+                labels: {
+                    boxWidth: 10, // Memperkecil kotak warna legenda
+                    font: { size: 11, family: 'inherit' } // Memperkecil teks legenda
+                }
+            }
+        },
         scales: {
-            y: { type: 'linear', display: true, position: 'left' },
-            y1: { type: 'linear', display: true, position: 'right', grid: { drawOnChartArea: false } }
+            y: { 
+                type: 'linear', 
+                display: true, 
+                position: 'left',
+                ticks: { font: { size: 10 } } // Memperkecil angka sumbu Y kiri
+            },
+            y1: { 
+                type: 'linear', 
+                display: true, 
+                position: 'right', 
+                grid: { drawOnChartArea: false },
+                ticks: { font: { size: 10 } } // Memperkecil angka sumbu Y kanan
+            },
+            x: {
+                ticks: { font: { size: 9 } } // Memperkecil teks waktu di sumbu X bawah
+            }
         }
     }
 });
@@ -217,12 +241,12 @@ function prosesDanTampilkanData() {
         dataPh.push(cacheHistoryData[timestamp].ph);
         dataTds.push(cacheHistoryData[timestamp].tds || 0); 
 
-        tableRows = `
-            <tr>
-                <td>${formatWaktu}</td>
-                <td>${Number(cacheHistoryData[timestamp].temp || 0).toFixed(1)} °C</td>
-                <td>${Number(cacheHistoryData[timestamp].ph || 0).toFixed(1)}</td>
-                <td>${Number(cacheHistoryData[timestamp].tds || 0).toFixed(0)} ppm</td>
+       tableRows = `
+            <tr style="border-bottom: 1px solid #e2efe2;">
+                <td style="padding: 12px 8px; font-size: 13px; white-space: nowrap;">${formatWaktu}</td>
+                <td style="padding: 12px 8px; font-size: 13px; white-space: nowrap;">${Number(cacheHistoryData[timestamp].temp || 0).toFixed(1)} °C</td>
+                <td style="padding: 12px 8px; font-size: 13px; white-space: nowrap;">${Number(cacheHistoryData[timestamp].ph || 0).toFixed(1)}</td>
+                <td style="padding: 12px 8px; font-size: 13px; white-space: nowrap;">${Number(cacheHistoryData[timestamp].tds || 0).toFixed(0)} ppm</td>
             </tr>
         ` + tableRows;
     }
