@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "biocycleaquaponik",
+  "private_key_id": "c0089c1a01b6cf2f296d8f4e70762d21e227e65f",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC7fDsLyFBbhtRy\nQ0IwGPCcl+gbpBoG4gwoHXzY48bj0BovygNAcNMUyTBjgyGilqCCxpTWxNoFxFOk\nLNCW8JqSXsJD4pjbogdl2hQD+rQSOEhkInrS0+EazzjNBEnIyozWT2NNUlB2FrBG\nrUZUd0qR1F08UTJAR58Wufx2DhBKS+doWVxA0lc4cGs0+EOdLlOEXpQpKrutjkiL\ni3a9ivmkk+8HVXomvxs+VKrtdjLMxD9gaSFm5j5anxl2ObiHmJoP0wxq2WYVO1y4\nrr8lhQj+OgNyjpqoEmzLzZQVkuUUzm3PBLQrkLyQdhvn8E9nVdMgGbc42m6Z532G\n5bVgLFP5AgMBAAECggEAAPui9TbbPpkzkYqX7qSfoYW/Ki+I3pkrMyXXoVN5/kVf\n11+AKna5xJW7DGqD/KEJimX8IpW5oICDZ7+/mdFjhHm9G800u/VBHXmW06zqA/mj\nkR+h9GtqXLefA2qOvUZcL3hCSJ9/DuXWwSgbaRbCOO2CGtTaJjG572aRbXtsmApR\nIdEpYoFxwjUT/zp1AxgVODH2BRTC1O0AgnkZG36qMDEg16ZwokJf0kK7O2XNC7sy\nsAmS2vFzyU5dBvWZAHnqAkmWRWGcOqQCihVW6/y4Nb3+H78BbVlghkD4+JBQU2TQ\n6299du6X99CJg+xmT0twJQhngXNqL2A8rz722FkcGQKBgQDtu91ED9yy3KLE7dRo\nbJBKtx7QVOtqvd2QgPny5T474x2AMyT5MbO1nM+O5WC4ndiBrqon+Z5J638OLeof\nflyDJEO/O5Agsx/dPE3393YuSHWv92cLL0jm0LpJ3gLWGQfvBRGfsfSdpROpxexf\n6YhErAT423bShk4fQlu8soferwKBgQDJ4/7soUqt21Qz6FRBJkPMZPTNL3S6Eq7B\nX3+l+UB14/I8Lm2vObt3opkoJ4Ai6eV37lj7bQ1MFU8uW4PHxTMV4Dzt/ZrryjyX\n2qSS7ox46cUFmB1ymPhoJ9ryDOHyl2K5A3XWLBS+pw8zgNlxW7frrmHT7iM13L8r\n/UaNAlBh1wKBgHTLN9BJTq7csGa5RQIsW9MpFc1Z+vJM5v4oLyPCtglr8cFa3w5B\n+bz+lgXo8NSiT4yeh9/txXMhbCFGM2BXjxGqjlHz7EH0XnItP0zUWU4xsQfLLueS\nymkDIJJLrO8MCxbFUbw4DCoqwHdG0nLoY1cBf8vW3hBdhSHcUv9oYlHnAoGAVhem\nvuus9+SezJ/XRgz2PnQSvGjvQuXypb1+pp1asqsowiceWOmqmsK4wxnNF5ZcZz85\nrMX9NKOlp2QZFxhtx3dfJDHQXZpZKnxvT8TwHCO8A72xWQwIagoM4MlDlPqfe7wR\nBOq5Ue/VmKXqk9+D17n+N6zGURK4Zx7TdhA1jPMCgYEAmBBJnOtyC0a7at4KnFOY\n871kZC5kFkMjkzOq/AjFzOwVBHgtM69e3k8kC/0oXiSwH1lMMrLo29ykFZx7Hw0J\nUJDS8UPi+05iZbmmFzQk1TehHcI2R73KytOdT1K7Dn+apMHtTllo3OSCBNk+bS3m\nez3ypSaZzI1ax9wn2hVj9LI=\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-fbsvc@biocycleaquaponik.iam.gserviceaccount.com",
+  "client_id": "104649427595115659384",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-fbsvc%40biocycleaquaponik.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login - Biocycle Farm</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="login-box" style="border-top-color: #2980b9;">
+        <h2>Portal Admin</h2>
+        <p>Masukkan kredensial khusus administrator</p>
+    
+        <input type="email" id="adminEmail" placeholder="Email Admin" autocomplete="off">
+    
+        <div style="position: relative; margin-bottom: 20px;">
+            <input type="password" id="adminPassword" placeholder="Password" style="margin-bottom: 0; padding-right: 40px; width: 100%;">
+            <span id="togglePassword" style="position: absolute; right: 15px; top: 15px; cursor: pointer; font-size: 18px;" title="Lihat Password">👁️</span>
+        </div>
+
+        <button id="btnAdminLogin" style="background-color: #2980b9;">Masuk Portal</button>
+        <p style="margin-top: 15px; font-size: 13px;"><a href="index.html" style="color: #7c7365;">Kembali ke Halaman User</a></p>
+    </div>
+
+    <script type="module" src="js/admin-auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Biocycle Farm</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="dashboard-container">
+        <header style="border-bottom: 3px solid #2d6a4f;">
+            <div>
+                <h2 style="color: #2d6a4f;">Monitoring Biocycle Farm</h2>
+                <p>Selamat datang, Pemilik Kode: <strong id="displayUserCode">Memuat...</strong></p>
+            </div>
+            <button id="btnLogout" class="btn-off">Keluar</button>
+        </header>
+
+        <div class="sensor-grid">
+            <div class="sensor-card" id="cardTemp">
+                <h3>Suhu Air</h3>
+                <div class="value"><span id="valTemp">--</span> °C</div>
+                <div class="status-kualitas" id="statusTemp">Memuat status...</div>
+            </div>
+            
+            <div class="sensor-card" id="cardPh">
+                <h3>pH Air</h3>
+                <div class="value"><span id="valPh">--</span></div>
+                <div class="status-kualitas" id="statusPh">Memuat status...</div>
+            </div>
+            
+            <div class="sensor-card" id="cardTds">
+                <h3>Nutrisi (TDS)</h3>
+                <div class="value"><span id="valTds">--</span> ppm</div>
+                <div class="status-kualitas" id="statusTds">Memuat status...</div>
+            </div>
+            
+            <div class="sensor-card" id="cardJarak">
+                <h3>Sisa Pakan</h3>
+                <div class="value"><span id="valJarak">--</span> %</div>
+                <div class="status-kualitas" id="statusJarak">Memuat status...</div>
+            </div>
+        </div>
+
+        <div class="control-panel">
+            <h3>Kendali Alat Jarak Jauh</h3>
+            <p>Mode Pompa saat ini: <strong id="statusPompa">Memuat...</strong></p>
+            <div class="control-buttons">
+                <button id="btnPumpOn" class="btn-on">Pompa ON</button>
+                <button id="btnPumpOff" class="btn-off">Pompa OFF</button>
+                <button id="btnPumpAuto" class="btn-auto">Mode AUTO</button>
+            </div>
+            <button id="btnFeedNow" class="btn-feed" style="margin-bottom: 20px;">Beri Pakan Sekarang!</button>
+
+            <div style="background-color: #f4f9f4; padding: 15px; border-radius: 8px; border: 1px solid #c7e2c7; text-align: left;">
+                <h4 style="margin-top: 0; color: #2d6a4f;">⏱️ Alarm Jadwal Pompa Air</h4>
+                <p style="font-size: 13px; color: #555; margin-bottom: 15px; line-height: 1.5;">
+                   Sistem akan membangunkan pompa selama <strong>15 Menit</strong> pada jam yang ditentukan. Selama 15 menit tersebut, pompa otomatis berdetak (15 detik ON, 20 detik OFF).
+                </p>
+                
+                <label style="font-weight: bold; display: inline-block; width: 90px; color: #2d6a4f;">Jam Pagi: </label>
+                <input type="time" id="inputJadwalPagi" value="07:30" style="margin-bottom: 10px; padding: 5px; border-radius: 4px; border: 1px solid #c7e2c7; font-family: inherit;"><br>
+                
+                <label style="font-weight: bold; display: inline-block; width: 90px; color: #2d6a4f;">Jam Sore: </label>
+                <input type="time" id="inputJadwalSore" value="16:30" style="margin-bottom: 15px; padding: 5px; border-radius: 4px; border: 1px solid #c7e2c7; font-family: inherit;"><br>
+                
+                <button id="btnSimpanAlarm" style="background-color: #2d6a4f; color: white; padding: 10px 15px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; width: 100%; transition: background 0.2s;">
+                    Simpan Jadwal Alarm
+                </button>
+            </div>
+            </div>
+
+        <div class="chart-container" style="border-top: 4px solid #2d6a4f;">
+            <h3 style="color: #2d6a4f;">Grafik Kondisi Air</h3>
+            <canvas id="historyChart" height="100"></canvas>
+        </div>
+
+        <div class="chart-container" style="margin-top: 20px; border-top: 4px solid #2d6a4f;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; flex-wrap: wrap; gap: 10px;">
+                <h3 style="margin: 0; color: #2d6a4f;">Riwayat Data Lengkap (History Log)</h3>
+                
+                <div style="display: flex; align-items: center; gap: 8px;">
+                    <select id="filterTanggal" style="padding: 6px 12px; border-radius: 6px; border: 2px solid #2d6a4f; background-color: #f4f9f4; color: #2d6a4f; cursor: pointer; font-weight: bold; font-family: inherit; font-size: 14px; outline: none;">
+                        <option value="">-- Semua Tanggal --</option>
+                    </select>
+                    <button id="btnResetFilter" style="padding: 6px 12px; border-radius: 6px; cursor: pointer; background-color: #e2efe2; color: #2d6a4f; border: 1px solid #2d6a4f; font-weight: bold; font-family: inherit; font-size: 14px;">Reset</button>
+                </div>
+            </div>
+
+            <div style="max-height: 250px; overflow-y: auto; border: 1px solid #c7e2c7; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+                <table style="width: 100%; border-collapse: collapse; text-align: center; font-family: inherit;">
+                    <thead style="position: sticky; top: 0; background-color: #2d6a4f; color: white; z-index: 10;">
+                        <tr>
+                            <th style="padding: 12px; border-bottom: 2px solid #1b4332; font-weight: 600;">Waktu</th>
+                            <th style="padding: 12px; border-bottom: 2px solid #1b4332; font-weight: 600;">Suhu</th>
+                            <th style="padding: 12px; border-bottom: 2px solid #1b4332; font-weight: 600;">pH Air</th>
+                            <th style="padding: 12px; border-bottom: 2px solid #1b4332; font-weight: 600;">TDS (Nutrisi)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="historyTableBody" style="background-color: #ffffff; color: #333;">
+                        </tbody>
+                </table>
+            </div>
+        </div>
+        </div>
+
+    <script type="module" src="js/dashboard.js"></script>
+</body>
+</html>

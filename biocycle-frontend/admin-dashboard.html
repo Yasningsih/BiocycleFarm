@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Biocycle Farm</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Tambahan sedikit CSS khusus form Admin agar rapi */
+        .admin-form-group { margin-bottom: 15px; text-align: left; }
+        .admin-form-group label { display: block; font-weight: 600; font-size: 14px; margin-bottom: 5px; color: #2e3b32;}
+        .admin-form-group input[type="number"], .admin-form-group input[type="text"] { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; }
+        .checkbox-group { display: flex; gap: 15px; margin-top: 5px; }
+        .checkbox-group label { font-weight: normal; display: flex; align-items: center; gap: 5px;}
+        .hidden-section { display: none; margin-top: 20px; border-top: 2px dashed #ddd; padding-top: 20px;}
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <header>
+            <div>
+                <h2>Panel Administrator</h2>
+                <p>Kelola konfigurasi lahan petani secara terpusat</p>
+            </div>
+            <button id="btnAdminLogout" class="btn-off">Keluar Admin</button>
+        </header>
+
+        <div class="control-panel">
+            <h3>Buat Kode Petani Baru</h3>
+            <p style="font-size: 14px; margin-bottom: 15px; color: #777;">Sistem akan membuat struktur database otomatis beserta passwordnya.</p>
+            
+            <div style="display: flex; flex-direction: column; gap: 10px;">
+                <input type="text" id="newCodeInput" placeholder="Masukkan Kode (Contoh: PETANI01)" style="padding: 12px; border: 2px solid #e2ddd3; border-radius: 8px;">
+                
+                <input type="text" id="newPasswordInput" placeholder="Buat Password Akun (Contoh: rahasia123)" style="padding: 12px; border: 2px solid #e2ddd3; border-radius: 8px;">
+                
+                <button id="btnCreateUser" class="btn-auto" style="padding: 12px;">Daftarkan Kode & Password</button>
+            </div>
+        </div>
+
+        <div class="control-panel">
+            <h3>Konfigurasi Aturan Alat Petani</h3>
+            
+            <div style="display: flex; gap: 10px; margin-bottom: 20px;">
+                <input type="text" id="searchUserInput" placeholder="Masukkan Kode User (cth: USER123)" style="flex: 1; padding: 12px; border: 2px solid #e2ddd3; border-radius: 8px;">
+                <button id="btnSearchUser" class="btn-on">Cari Data</button>
+            </div>
+
+            <div id="configSection" class="hidden-section">
+                <h4 style="margin-bottom: 15px; color: #c0392b;">Konfigurasi untuk: <span id="targetUserLabel"></span></h4>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <div>
+                        <h4 style="margin-bottom: 10px;">Batas Aman Otomatisasi (Range)</h4>
+                        <div class="admin-form-group">
+                            <label>Suhu Air (°C)</label>
+                            <div style="display: flex; gap: 10px;">
+                                <input type="number" id="tempMin" placeholder="Min">
+                                <input type="number" id="tempMax" placeholder="Max">
+                            </div>
+                        </div>
+                        <div class="admin-form-group">
+                            <label>pH Air</label>
+                            <div style="display: flex; gap: 10px;">
+                                <input type="number" id="phMin" placeholder="Min">
+                                <input type="number" id="phMax" placeholder="Max">
+                            </div>
+                        </div>
+                        <div class="admin-form-group">
+                            <label>TDS Maksimal (ppm)</label>
+                            <input type="number" id="tdsMax" placeholder="Max">
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4 style="margin-bottom: 10px;">Sensor yang Ditampilkan ke Petani</h4>
+                        <div class="admin-form-group">
+                            <div class="checkbox-group">
+                                <label><input type="checkbox" id="showTemp"> Suhu Air</label>
+                                <label><input type="checkbox" id="showPh"> pH Air</label>
+                            </div>
+                            <div class="checkbox-group">
+                                <label><input type="checkbox" id="showTds"> Nutrisi (TDS)</label>
+                                <label><input type="checkbox" id="showJarak"> Sisa Pakan</label>
+                            </div>
+                        </div>
+                        <div class="admin-form-group" style="margin-top: 20px;">
+                            <label>Interval Pakan Otomatis (Jam)</label>
+                            <select id="feedInterval" style="width: 100%; padding: 10px; border-radius: 6px;">
+                                <option value="6">6 Jam Sekali</option>
+                                <option value="12">12 Jam Sekali</option>
+                                <option value="24">24 Jam Sekali</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <button id="btnSaveConfig" class="btn-on" style="width: 100%; margin-top: 20px;">Simpan Perubahan</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="js/admin-dashboard.js"></script>
+</body>
+</html>
